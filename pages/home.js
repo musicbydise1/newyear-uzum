@@ -12,10 +12,12 @@ import styles from "../styles/Home.module.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useIsMobile } from "../hooks/useIsMobile";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   const section1Ref = useRef();
   const section2Ref = useRef();
   const section3Ref = useRef();
@@ -79,7 +81,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: "80vh",
+      y: isMobile ? "60vh" : "80vh",
       ease: "none",
     });
 
@@ -93,7 +95,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: "160vh",
+      y: isMobile ? "120vh" : "160vh",
       ease: "none",
     });
 
@@ -107,7 +109,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: "80vh",
+      y: isMobile ? "60vh" : "80vh",
       ease: "none",
     });
     gsap.timeline({
@@ -119,7 +121,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: "160vh",
+      y: isMobile ? "120vh" : "160vh",
       ease: "none",
     });
 
@@ -158,7 +160,7 @@ export default function Home() {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []);
+  }, [isMobile]);
   
   return (
     <div>
