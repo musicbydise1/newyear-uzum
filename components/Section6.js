@@ -5,6 +5,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import Logo from "./Logo";
 import SegmentedControl from "./SegmentedControl";
 import WishModal from "./WishModal";
+import { useIsMobile } from '../hooks/useIsMobile';
 
 export default function Section6({
   scrollTo,
@@ -16,6 +17,7 @@ export default function Section6({
   const sectionRef = useRef();
   const { t, locale, changeLanguage } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const languageData = [
     { value: 'ru', label: 'RU' },
@@ -31,8 +33,8 @@ export default function Section6({
         <Image 
           src="/images/bell.webp" 
           alt="Bell" 
-          width={170} 
-          height={200}
+          width={isMobile ? 150 : 200} 
+          height={isMobile ? 170 : 220}
         />
       </div>
       <div className={styles.topRightContainer}>
@@ -47,8 +49,8 @@ export default function Section6({
           <Image 
             src="/images/bell.webp" 
             alt="Bell" 
-            width={200} 
-            height={250}
+            width={isMobile ? 80 : 150} 
+            height={isMobile ? 100 : 170}
           />
         </div>
       </div>
@@ -85,16 +87,16 @@ export default function Section6({
         <Image 
           src="/images/gingerbread.webp" 
           alt="Gingerbread" 
-          width={250} 
-          height={250}
+          width={isMobile ? 300 : 450} 
+          height={isMobile ? 250 : 380}
         />
       </div>
       <div className={styles.treeBottomRight}>
         <Image 
           src="/images/tree.webp" 
           alt="Tree" 
-          width={250} 
-          height={250}
+          width={isMobile ? 300 : 400} 
+          height={isMobile ? 400 : 550}
         />
       </div>
     </div>
