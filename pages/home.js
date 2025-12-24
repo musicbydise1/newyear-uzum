@@ -13,11 +13,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useIsMobile } from "../hooks/useIsMobile";
+import { useIsShortScreen } from "../hooks/useIsShortScreen";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
+  const isShortScreen = useIsShortScreen();
   const section1Ref = useRef();
   const section2Ref = useRef();
   const section3Ref = useRef();
@@ -81,7 +83,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile ? "65vh" : "80vh",
+      y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : "80vh",
       ease: "none",
     });
 
@@ -95,7 +97,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile ? "125vh" : "160vh",
+      y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : "160vh",
       ease: "none",
     });
 
@@ -109,7 +111,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile ? "65vh" : "80vh",
+      y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : "80vh",
       ease: "none",
     });
     gsap.timeline({
@@ -121,7 +123,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile ? "125vh" : "160vh",
+      y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : "160vh",
       ease: "none",
     });
 
@@ -160,7 +162,7 @@ export default function Home() {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [isMobile]);
+  }, [isMobile, isShortScreen]);
   
   return (
     <div>
