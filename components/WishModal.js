@@ -171,6 +171,9 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
               width={300}
               height={300}
               priority
+              quality={90}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
             />
           )}
           {showOpenBox && (
@@ -180,6 +183,9 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
               width={300}
               height={300}
               priority
+              quality={90}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
             />
           )}
         </div>
@@ -216,6 +222,10 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
                   width={150}
                   height={150}
                   priority
+                  quality={90}
+                  sizes="(max-width: 768px) 120px, 150px"
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                 />
               </div>
               <div className={styles.logoWrapper}>
@@ -229,6 +239,10 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
                   width={150}
                   height={150}
                   priority
+                  quality={90}
+                  sizes="(max-width: 768px) 120px, 150px"
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                 />
               </div>
             </div>

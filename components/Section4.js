@@ -129,6 +129,10 @@ export default function Section4({
             width={600} 
             height={600}
             priority
+            quality={90}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
           />
           <p className={styles.imageText}>{t("sections.section4Photo1")}</p>
         </div>
@@ -139,6 +143,10 @@ export default function Section4({
             width={600} 
             height={600}
             priority
+            quality={90}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
           />
           <p className={styles.imageText}>{t("sections.section4Photo2")}</p>
         </div>

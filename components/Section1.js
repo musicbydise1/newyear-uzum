@@ -85,6 +85,9 @@ export default function Section1({
           width={isMobile ? 409 : 600} 
           height={isMobile ? 409 : 600} 
           priority
+          quality={90}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
       </div>
       <div className={styles.copy}>
@@ -104,6 +107,9 @@ export default function Section1({
           width={isMobile ? 447 : 730} 
           height={isMobile ? 447 : 730}
           priority
+          quality={90}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
       </div>
     </div>

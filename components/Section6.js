@@ -34,6 +34,10 @@ export default function Section6({
           width={200} 
           height={200}
           priority
+          quality={90}
+          sizes="(max-width: 768px) 150px, 200px"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
       </div>
       <div className={styles.topRightContainer}>
@@ -51,6 +55,10 @@ export default function Section6({
             width={250} 
             height={250}
             priority
+            quality={90}
+            sizes="(max-width: 768px) 200px, 250px"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
           />
         </div>
       </div>
@@ -90,6 +98,10 @@ export default function Section6({
           width={250} 
           height={250}
           priority
+          quality={90}
+          sizes="(max-width: 768px) 200px, 250px"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
       </div>
       <div className={styles.treeBottomRight}>
@@ -99,6 +111,10 @@ export default function Section6({
           width={250} 
           height={250}
           priority
+          quality={90}
+          sizes="(max-width: 768px) 200px, 250px"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
       </div>
     </div>

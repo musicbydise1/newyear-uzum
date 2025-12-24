@@ -1,9 +1,11 @@
 {
   "welcome": {
-    "title": "Xush kelibsiz",
-    "selectLanguage": "Tilni tanlang",
-    "russian": "Rus",
-    "uzbek": "O'zbek"
+    "title": "ВЫБЕРИТЕ ЯЗЫК",
+    "subtitle": "Tilni tanlang",
+    "russian": "РУССКИЙ",
+    "russianSubtitle": "ЯЗЫК",
+    "uzbek": "O'ZBEK",
+    "uzbekSubtitle": "TILI"
   },
   "sections": {
     "section1": "2025 yil turlicha <br /> bo'ldi",

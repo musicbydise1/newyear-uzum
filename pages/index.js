@@ -15,25 +15,27 @@ export default function Welcome() {
   return (
     <div className={styles.welcomeContainer}>
       <Head>
-        <title>{t('welcome.title')}</title>
+        <title>Выберите язык</title>
         <meta name="description" content="Select your language" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.content}>
         <h1 className={styles.title}>{t('welcome.title')}</h1>
-        <p className={styles.subtitle}>{t('welcome.selectLanguage')}</p>
+        <p className={styles.subtitle}>{t('welcome.subtitle')}</p>
         <div className={styles.buttonContainer}>
           <button
             className={styles.languageButton}
             onClick={() => handleLanguageSelect('ru')}
           >
-            {t('welcome.russian')}
+            <span className={styles.buttonText}>{t('welcome.russian')}</span>
+            <span className={styles.buttonSubtext}>{t('welcome.russianSubtitle')}</span>
           </button>
           <button
             className={styles.languageButton}
             onClick={() => handleLanguageSelect('uz')}
           >
-            {t('welcome.uzbek')}
+            <span className={styles.buttonText}>{t('welcome.uzbek')}</span>
+            <span className={styles.buttonSubtext}>{t('welcome.uzbekSubtitle')}</span>
           </button>
         </div>
       </div>

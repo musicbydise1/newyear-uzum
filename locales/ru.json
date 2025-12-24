@@ -1,9 +1,11 @@
 {
   "welcome": {
-    "title": "Добро пожаловать",
-    "selectLanguage": "Выберите язык",
-    "russian": "Русский",
-    "uzbek": "Узбекский"
+    "title": "ВЫБЕРИТЕ ЯЗЫК",
+    "subtitle": "Tilni tanlang",
+    "russian": "РУССКИЙ",
+    "russianSubtitle": "ЯЗЫК",
+    "uzbek": "O'ZBEK",
+    "uzbekSubtitle": "TILI"
   },
   "sections": {
     "section1": "2025 был разным",
