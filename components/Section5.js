@@ -4,6 +4,7 @@ import styles from "./Section5.module.scss";
 import { useLanguage } from "../contexts/LanguageContext";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useIsMobile } from '../hooks/useIsMobile';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Section5({
@@ -11,35 +12,89 @@ export default function Section5({
   goToSectionRef,
   showArrow,
   headline,
-  previousSectionRef,
 }) {
   const sectionRef = useRef();
   const photo3Ref = useRef();
   const photo4Ref = useRef();
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const sectionElement = sectionRef.current;
-    const previousSectionElement = previousSectionRef?.current;
     const photo3Element = photo3Ref.current;
     const photo4Element = photo4Ref.current;
 
-    // Анимация вращения картинок на месте при переходе с секции 4 на секцию 5
-    if (photo3Element && photo4Element && previousSectionElement && sectionElement) {
-      // Левая картинка крутится по часовой стрелке
+    // Анимация появления картинок со своих сторон при переходе с секции 4 на секцию 5
+    if (photo3Element && photo4Element && sectionElement) {
+      // Адаптивные значения для мобильных устройств
+      const xOffset = isMobile ? -100 : -200;
+      const rotationStart = isMobile ? -30 : -60;
+      const startPoint = isMobile ? "top 90%" : "top 80%";
+      const endPoint = isMobile ? "top 60%" : "top 50%";
+
+      // Левая картинка появляется слева с вращением
       gsap.fromTo(
         photo3Element,
         {
-          rotation: 0,
+          x: xOffset,
+          rotation: rotationStart,
+          opacity: 0,
         },
         {
-          rotation: 90,
+          x: 0,
+          rotation: isMobile ? 0 : 15,
+          opacity: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            scroller: ".container",
+            trigger: sectionElement,
+            start: startPoint,
+            end: endPoint,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+
+      // Правая картинка появляется справа с вращением
+      gsap.fromTo(
+        photo4Element,
+        {
+          x: -xOffset,
+          rotation: -rotationStart,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          rotation: isMobile ? 0 : -15,
+          opacity: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            scroller: ".container",
+            trigger: sectionElement,
+            start: startPoint,
+            end: endPoint,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+
+      // Анимация вращения картинок на месте при переходе с секции 5 на секцию 6
+      // Левая картинка крутится по часовой стрелке
+      gsap.fromTo(
+        photo4Element,
+        {
+          rotation: isMobile ? 0 : -15,
+        },
+        {
+          rotation: -90,
           ease: "none",
           scrollTrigger: {
             scroller: ".container",
-            trigger: previousSectionElement,
-            start: "bottom top",
-            end: "bottom bottom",
+            trigger: sectionElement,
+            start: "top top",
+            end: "bottom top",
             scrub: 1,
           },
         }
@@ -47,18 +102,18 @@ export default function Section5({
 
       // Правая картинка крутится против часовой стрелки
       gsap.fromTo(
-        photo4Element,
+        photo3Element,
         {
-          rotation: 0,
+          rotation: isMobile ? 0 : 15,
         },
         {
-          rotation: -90,
+          rotation: 90,
           ease: "none",
           scrollTrigger: {
             scroller: ".container",
-            trigger: previousSectionElement,
-            start: "bottom top",
-            end: "bottom bottom",
+            trigger: sectionElement,
+            start: "top top",
+            end: "bottom top",
             scrub: 1,
           },
         }
@@ -67,12 +122,12 @@ export default function Section5({
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars?.trigger === previousSectionElement) {
+        if (trigger.vars?.trigger === sectionElement) {
           trigger.kill();
         }
       });
     };
-  }, [previousSectionRef]);
+  }, [isMobile]);
 
   return (
     <div className={styles.section} ref={sectionRef}>
@@ -93,7 +148,7 @@ export default function Section5({
             src="/images/photo4.webp" 
             alt="Photo 4" 
             width={600} 
-            height={600}
+            height={565}
             quality={80}
             loading="lazy"
           />

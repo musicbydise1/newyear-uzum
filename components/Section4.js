@@ -4,6 +4,7 @@ import styles from "./Section4.module.scss";
 import { useLanguage } from "../contexts/LanguageContext";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useIsMobile } from '../hooks/useIsMobile';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Section4({
@@ -16,6 +17,7 @@ export default function Section4({
   const photo1Ref = useRef();
   const photo2Ref = useRef();
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const sectionElement = sectionRef.current;
@@ -24,25 +26,32 @@ export default function Section4({
 
     // Анимация появления картинок со своих сторон при переходе с секции 3 на секцию 4
     if (photo1Element && photo2Element && sectionElement) {
+      // Адаптивные значения для мобильных устройств
+      const xOffset = isMobile ? -100 : -200;
+      const rotationStart = isMobile ? -30 : -60;
+      const startPoint = isMobile ? "top 90%" : "top 80%";
+      const endPoint = isMobile ? "top 60%" : "top 50%";
+
       // Левая картинка появляется слева с вращением
       gsap.fromTo(
         photo1Element,
         {
-          x: -200,
-          rotation: -60,
+          x: xOffset,
+          rotation: rotationStart,
           opacity: 0,
         },
         {
           x: 0,
-          rotation: 0,
+          rotation: isMobile ? 0 : 15,
           opacity: 1,
           ease: "power2.out",
           scrollTrigger: {
             scroller: ".container",
             trigger: sectionElement,
-            start: "top 80%",
-            end: "top 50%",
+            start: startPoint,
+            end: endPoint,
             scrub: 1,
+            invalidateOnRefresh: true,
           },
         }
       );
@@ -51,21 +60,22 @@ export default function Section4({
       gsap.fromTo(
         photo2Element,
         {
-          x: 200,
-          rotation: 60,
+          x: -xOffset,
+          rotation: -rotationStart,
           opacity: 0,
         },
         {
           x: 0,
-          rotation: 0,
+          rotation: isMobile ? 0 : -15,
           opacity: 1,
           ease: "power2.out",
           scrollTrigger: {
             scroller: ".container",
             trigger: sectionElement,
-            start: "top 80%",
-            end: "top 50%",
+            start: startPoint,
+            end: endPoint,
             scrub: 1,
+            invalidateOnRefresh: true,
           },
         }
       );
@@ -75,7 +85,7 @@ export default function Section4({
       gsap.fromTo(
         photo2Element,
         {
-          rotation: 0,
+          rotation: isMobile ? 0 : -15,
         },
         {
           rotation: -90,
@@ -94,7 +104,7 @@ export default function Section4({
       gsap.fromTo(
         photo1Element,
         {
-          rotation: 0,
+          rotation: isMobile ? 0 : 15,
         },
         {
           rotation: 90,
@@ -117,7 +127,7 @@ export default function Section4({
         }
       });
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className={styles.section} ref={sectionRef}>
@@ -138,7 +148,7 @@ export default function Section4({
             src="/images/photo22.webp" 
             alt="Photo 2" 
             width={600} 
-            height={600}
+            height={565}
             quality={80}
             loading="lazy"
           />

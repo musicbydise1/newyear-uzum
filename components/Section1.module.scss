@@ -13,12 +13,12 @@
 
   .bellImage {
     position: absolute;
-    top: -13%;
-    left: -10%;
+    top: -10%;
+    left: -3%;
     z-index: 2;
     transform-origin: center center;
     transform-origin: center center;
-    transform: rotate(-60deg);
+    transform: rotate(-45deg);
     
     @media (max-width: 768px) {
       top: -10%;
@@ -42,9 +42,9 @@
     }
     
     @media (max-width: 480px) {
-      top: -7%;
-      left: -40%;
-      transform: rotate(-45deg);
+      top: 0%;
+      left: -12%;
+      transform: rotate(-30deg);
       img {
         width: 80px;
         height: 80px;
@@ -52,12 +52,12 @@
       
       
       @media (max-height: 650px) {
-        top: -5%;
-        left: -25%;
+        top: 0%;
+        left: -13%;
         
         img {
-          width: 300px !important;
-          height: 300px !important;
+          width: 150px !important;
+          height: 190px !important;
         }
       }
     }

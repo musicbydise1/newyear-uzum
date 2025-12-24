@@ -24,6 +24,44 @@ export default function Section1({
     const gingerbreadElement = gingerbreadRef.current;
     const headlineElement = headlineRef.current;
 
+    // Анимация появления bell сверху слева к своей позиции
+    if (bellElement) {
+      gsap.fromTo(
+        bellElement,
+        {
+          x: -200,
+          y: -200,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power2.out",
+        }
+      );
+    }
+
+    // Анимация появления gingerbread снизу справа к своей позиции
+    if (gingerbreadElement) {
+      gsap.fromTo(
+        gingerbreadElement,
+        {
+          x: 200,
+          y: 200,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power2.out",
+        }
+      );
+    }
+
     // Анимация изменения opacity текста при скролле
     if (headlineElement && sectionElement) {
       // Анимация исчезновения текста при уходе с секции
@@ -90,8 +128,8 @@ export default function Section1({
         <Image 
           src="/images/bell.webp" 
           alt="Bell" 
-          width={isMobile ? 409 : 600} 
-          height={isMobile ? 409 : 600} 
+          width={isMobile ? 200 : 400} 
+          height={isMobile ? 240 : 479} 
         />
       </div>
       <div className={styles.copy}>

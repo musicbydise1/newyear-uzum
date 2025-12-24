@@ -58,20 +58,31 @@ export default function Home() {
   useEffect(() => {
     const glowElement = glowWrapperRef.current;
     if (!glowElement) return;
-
-    // Анимация появления GlowCircle при загрузке страницы (с задержкой 1 секунда)
-    gsap.fromTo(
-      glowElement,
-      {
-        opacity: 0.65,
-      },
-      {
-        opacity: 1,
-        duration: 1,
-        delay: 1,
-        ease: "power2.out",
-      }
-    );
+    
+    // Анимация появления GlowCircle сверху к своей позиции, затем изменение opacity
+    gsap.timeline()
+      .fromTo(
+        glowElement,
+        {
+          y: "-100vh",
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 0.65,
+          duration: 1.2,
+          ease: "power2.out",
+        }
+      )
+      .to(
+        glowElement,
+        {
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+        },
+        "+=1" // Задержка 1 секунда после предыдущей анимации
+      );
 
     // Анимация изменения позиции при переходе от секции 1 к секции 2
     gsap.timeline({
