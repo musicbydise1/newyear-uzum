@@ -29,15 +29,10 @@ export default function Section6({
       </div>
       <div className={styles.bellTopLeft}>
         <Image 
-          src="/images/bell.png" 
+          src="/images/bell.webp" 
           alt="Bell" 
-          width={200} 
+          width={170} 
           height={200}
-          priority
-          quality={90}
-          sizes="(max-width: 768px) 150px, 200px"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
       </div>
       <div className={styles.topRightContainer}>
@@ -50,15 +45,10 @@ export default function Section6({
         </div>
         <div className={styles.bellTopRight}>
           <Image 
-            src="/images/bell.png" 
+            src="/images/bell.webp" 
             alt="Bell" 
-            width={250} 
+            width={200} 
             height={250}
-            priority
-            quality={90}
-            sizes="(max-width: 768px) 200px, 250px"
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
           />
         </div>
       </div>
@@ -93,28 +83,18 @@ export default function Section6({
       />
       <div className={styles.gingerbreadBottomLeft}>
         <Image 
-          src="/images/gingerbread.png" 
+          src="/images/gingerbread.webp" 
           alt="Gingerbread" 
           width={250} 
           height={250}
-          priority
-          quality={90}
-          sizes="(max-width: 768px) 200px, 250px"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
       </div>
       <div className={styles.treeBottomRight}>
         <Image 
-          src="/images/tree.png" 
+          src="/images/tree.webp" 
           alt="Tree" 
           width={250} 
           height={250}
-          priority
-          quality={90}
-          sizes="(max-width: 768px) 200px, 250px"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
         />
       </div>
     </div>

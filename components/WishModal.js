@@ -166,26 +166,18 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
         <div ref={boxRef} className={styles.boxContainer}>
           {showBox && (
             <Image
-              src="/images/box.png"
+              src="/images/box.webp"
               alt="Box"
               width={300}
               height={300}
-              priority
-              quality={90}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
             />
           )}
           {showOpenBox && (
             <Image
-              src="/images/open-boxxx.png"
+              src="/images/open-box.webp"
               alt="Open Box"
               width={300}
               height={300}
-              priority
-              quality={90}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
             />
           )}
         </div>
@@ -217,15 +209,10 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
             <div className={styles.contentWrapper}>
               <div className={styles.bellTopLeft}>
                 <Image
-                  src="/images/bell.png"
+                  src="/images/bell.webp"
                   alt="Bell"
                   width={150}
                   height={150}
-                  priority
-                  quality={90}
-                  sizes="(max-width: 768px) 120px, 150px"
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                 />
               </div>
               <div className={styles.logoWrapper}>
@@ -234,15 +221,10 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
               <p className={styles.modalText}>{wishText}</p>
               <div className={styles.gingerbreadBottomRight}>
                 <Image
-                  src="/images/gingerbread.png"
+                  src="/images/gingerbread.webp"
                   alt="Gingerbread"
                   width={150}
                   height={150}
-                  priority
-                  quality={90}
-                  sizes="(max-width: 768px) 120px, 150px"
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
                 />
               </div>
             </div>

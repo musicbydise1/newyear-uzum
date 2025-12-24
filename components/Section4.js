@@ -124,29 +124,23 @@ export default function Section4({
       <div className={styles.imagesContainer}>
         <div ref={photo1Ref} className={styles.imageWrapper}>
           <Image 
-            src="/images/photo1.png" 
+            src="/images/photo11.webp" 
             alt="Photo 1" 
             width={600} 
             height={600}
-            priority
-            quality={90}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+            quality={80}
+            loading="lazy"
           />
           <p className={styles.imageText}>{t("sections.section4Photo1")}</p>
         </div>
         <div ref={photo2Ref} className={styles.imageWrapper}>
           <Image 
-            src="/images/photo2.png" 
+            src="/images/photo22.webp" 
             alt="Photo 2" 
             width={600} 
             height={600}
-            priority
-            quality={90}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+            quality={80}
+            loading="lazy"
           />
           <p className={styles.imageText}>{t("sections.section4Photo2")}</p>
         </div>

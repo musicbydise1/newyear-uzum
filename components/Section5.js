@@ -79,29 +79,23 @@ export default function Section5({
       <div className={styles.imagesContainer}>
         <div ref={photo3Ref} className={styles.imageWrapper}>
           <Image 
-            src="/images/photo3.png" 
+            src="/images/photo3.webp" 
             alt="Photo 3" 
             width={600} 
             height={600}
-            priority
-            quality={90}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+            quality={80}
+            loading="lazy"
           />
           <p className={styles.imageText}>{t("sections.section5Photo1")}</p>
         </div>
         <div ref={photo4Ref} className={styles.imageWrapper}>
           <Image 
-            src="/images/photo4.png" 
+            src="/images/photo4.webp" 
             alt="Photo 4" 
             width={600} 
             height={600}
-            priority
-            quality={90}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+            quality={80}
+            loading="lazy"
           />
           <p className={styles.imageText}>{t("sections.section5Photo2")}</p>
         </div>
