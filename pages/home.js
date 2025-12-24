@@ -81,7 +81,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile ? "60vh" : "80vh",
+      y: isMobile ? "65vh" : "80vh",
       ease: "none",
     });
 
@@ -95,7 +95,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile ? "120vh" : "160vh",
+      y: isMobile ? "125vh" : "160vh",
       ease: "none",
     });
 
@@ -109,7 +109,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile ? "60vh" : "80vh",
+      y: isMobile ? "65vh" : "80vh",
       ease: "none",
     });
     gsap.timeline({
@@ -121,7 +121,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile ? "120vh" : "160vh",
+      y: isMobile ? "125vh" : "160vh",
       ease: "none",
     });
 
