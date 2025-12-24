@@ -26,17 +26,25 @@ export default function Section1({
 
     // Анимация изменения opacity текста при скролле
     if (headlineElement && sectionElement) {
-      gsap.to(headlineElement, {
-        opacity: 0,
-        ease: "none",
-        scrollTrigger: {
-          scroller: ".container",
-          trigger: sectionElement,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
+      // Анимация исчезновения текста при уходе с секции
+      gsap.fromTo(
+        headlineElement,
+        {
+          opacity: 1,
         },
-      });
+        {
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            scroller: ".container",
+            trigger: sectionElement,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
     }
 
     // Анимация вращения картинок при уходе с секции
@@ -75,7 +83,7 @@ export default function Section1({
         }
       });
     };
-  }, []);
+  }, [isMobile]);
   return (
     <div className={styles.section} ref={sectionRef}>
       <div ref={bellRef} className={styles.bellImage}>

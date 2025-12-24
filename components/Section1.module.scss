@@ -85,6 +85,8 @@
       line-height: 100%;
       text-transform: uppercase;
       white-space: nowrap;
+      opacity: 1;
+      pointer-events: none;
       
       @media (max-width: 768px) {
         font-size: 4.5rem;
