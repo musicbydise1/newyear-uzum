@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import styles from "./Section3.module.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useIsMobile } from '../hooks/useIsMobile';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Section3({
@@ -12,6 +13,7 @@ export default function Section3({
 }) {
   const headlineRef = useRef();
   const sectionRef = useRef();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const sectionElement = sectionRef.current;
@@ -20,7 +22,7 @@ export default function Section3({
     // Анимация уменьшения текста при скролле к секции 4
     if (headlineElement && sectionElement) {
       gsap.to(headlineElement, {
-        scale: 0.5,
+        scale: isMobile ? 0.2 : 0.5,
         ease: "none",
         scrollTrigger: {
           scroller: ".container",
@@ -39,7 +41,7 @@ export default function Section3({
         }
       });
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className={styles.section} ref={sectionRef}>
