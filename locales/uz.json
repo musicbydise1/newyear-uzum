@@ -1,0 +1,26 @@
+{
+  "welcome": {
+    "title": "Xush kelibsiz",
+    "selectLanguage": "Tilni tanlang",
+    "russian": "Rus",
+    "uzbek": "O'zbek"
+  },
+  "sections": {
+    "section1": "2025 yil turlicha <br /> bo'ldi",
+    "section2": "Lekin sen <br /> shu yerdasan <br /> va oxirigacha <br /> yetib kelding",
+    "section3": "Keling, bu yil <br /> senga nimalar olib <br /> kelganini ko'rib <br /> chiqaylik",
+    "section4": "Bo'lim 4 - Tajriba",
+    "section5": "Bo'lim 5 - Safari",
+    "section6": "2026 yilda biz <br /> senga nimalar <br /> tilashimizni ko'rib <br /> chiq",
+    "section7": "Bo'lim 7 - Yakun",
+    "section4Photo1": "Kasbiy so'nishni",
+    "section4Photo2": "Yangi loyihalar va odamlarni",
+    "section5Photo1": "Komfort zonadan chiqishni",
+    "section5Photo2": "katta orzu sari birinchi qadamni",
+    "section6Button": "ko'rish",
+    "wishTitle": "2026 yil uchun tilaklarimiz",
+    "shareButton": "Ulashish",
+    "downloadButton": "Yuklab olish"
+  }
+}
+

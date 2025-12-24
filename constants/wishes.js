@@ -1,0 +1,58 @@
+export const wishes = {
+  ru: [
+    "Пусть в 2026 денег будет столько, чтобы хватало на все товары в корзине и «желаниях».",
+    "Пусть в 2026 все задачи решаются так же просто, как открыть карту в Uzum Bank",
+    "Пусть 2026 будет годом, где всё работает: даже ты по утрам.",
+    "Пусть 2026 будет годом, когда ты любишь себя больше, чем еду после 23:00.",
+    "Пусть в 2026 тебя любят так же искренне, как коты любят коробки.",
+    "Пусть в 2026 у тебя будет столько проектов, сколько сейчас отложенных сообщений.",
+    "Пусть 2026 станет годом, где дедлайны тебя не догоняют.",
+    "В 2026 ты наконец перестанешь спорить с навигатором.",
+    "В 2026 ты перестанешь возвращаться за зарядкой.",
+    "В 2026 кофе будет работать с первого глотка.",
+    "В 2026 ты будешь просыпаться без «ещё 5 минут».",
+    "Пусть в 2026 ты выбираешь себя так же уверенно, как выбираешь фильтр в сторис.",
+    "Пусть твой внутренний критик будет в отпуске весь год.",
+    "Пусть в 2026 году фраза \"Худо хохласа\" - станет реальной гарантией",
+    "В 2026 году я стану человеком, который пьёт воду, а не кофе на голодный желудок.",
+    "В 2026 году я хочу отношения стабильные, как график отключения воды",
+    "В 2026 году я хочу быть спокойной, как человек, который нашёл парковку в ТРЦ в субботу",
+    "В 2026 году я буду так же уверенно идти к своим целям, как за покупками в Uzum Market вечером после работы.",
+    "В 2026 году я хочу отношений, где всё понятно — как статус заказа в Uzum Tezkor",
+    "В 2026 году мои планы пусть складываются так же идеально, как подборки \"Рекомендуем для вас\" в Uzum Market.",
+    "В 2026 году я наконец пойму: если что-то моё — оно придёт ко мне, как курьер Uzum Tezkor.",
+    "В 2026 году я хочу, чтобы счастье было без скрытых комиссий, как в Uzum Bank",
+    "В 2026 году пусть мои желания исполняются так же быстро, как Uzum Tezkor привозит еду, когда я голодная.",
+  ],
+  uz: [
+    "2026-yilda savatdagi barcha mahsulotlar va \"istaklar\" uchun yetarlicha pul bo'lsin.",
+    "2026-yilda barcha vazifalar Uzum Bankda karta ochish kabi oson hal qilinsin.",
+    "2026-yil hamma narsa ishlaydigan yil bo'lsin: hattoki ertalablari siz ham.",
+    "2026-yil soat 23:00 dan keyingi ovqatdan ko'ra o'zingni ko'proq sevadigan yil bo'lsin.",
+    "2026-yilda mushuklar qutilarni qanday sevsa, sizni ham shunday samimiy sevishsin.",
+    "2026-yilda sizda hozir rejalashtirilgan xabarlar soniga teng loyihalar bo'lsin.",
+    "2026-yil sizni dedlaynlar quvib yetmaydigan yil bo'lsin.",
+    "2026-yilda nihoyat navigator bilan bahslashishni to'xtatasiz.",
+    "2026-yilda quvvatlagichni olish uchun qaytishni to'xtatasiz.",
+    "2026-yilda qahva birinchi qultumdanoq ishlaydi.",
+    "2026-yilda \"yana 5 daqiqa\"siz uyg'onasiz.",
+    "2026-yilda o'zingizni xuddi Stories'ga filtr kabi ishonch bilan tanlang.",
+    "Ichki tanqidching yil bo'yi ta'tilda bo'lsin.",
+    "2026-yilda \"Xudo xohlasa\" iborasi haqiqiy kafolatga aylansin.",
+    "2026-yilda och qoringa qahva emas, suv ichadigan odamga aylanaman.",
+    "2026-yilda men suvni o'chirish jadvali kabi barqaror munosabatlarni istayman.",
+    "2026-yilda shanba kuni savdo markazida to'xtash joyini topgan odam kabi xotirjam bo'lishni istayman.",
+    "2026-yilda men o'z maqsadlarim sari xuddi ishdan keyin kechqurun Uzum Market'da xarid qilgandek ishonch bilan boraman.",
+    "2026-yilda men Uzum Tezkor'da buyurtma statusi kabi hamma narsa tushunarli bo'lgan munosabatlarni xohlayman.",
+    "2026-yilda rejalarim Uzum Market'dagi \"Siz uchun tavsiya etamiz\" to'plamlari kabi mukammal bo'lsin.",
+    "2026-yilda men nihoyat tushunib yetaman: agar biror narsa meniki bo'lsa — u menga Uzum Tezkor kuryeri kabi keladi.",
+    "2026-yilda Uzum Bankdagi kabi yashirin komissiyalarsiz baxt bo'lishini istayman.",
+    "2026-yilda Uzum Tezkor och qolganimda yegulik olib kelgani kabi tilaklarim tezroq amalga oshsin.",
+  ],
+};
+
+export function getRandomWish(locale = 'ru') {
+  const wishesList = wishes[locale] || wishes.ru;
+  return wishesList[Math.floor(Math.random() * wishesList.length)];
+}
+

@@ -1,0 +1,100 @@
+.welcomeContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #33006b 0%, #6000da 100%);
+  padding: 20px;
+  
+  @media (max-width: 480px) {
+    padding: 15px;
+  }
+}
+
+.content {
+  text-align: center;
+  z-index: 1;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  
+  @media (min-width: 480px) {
+    font-size: 3rem;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 4rem;
+  }
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  
+  @media (min-width: 480px) {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  @media (min-width: 480px) {
+    gap: 20px;
+  }
+}
+
+.languageButton {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 200px;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  @media (min-width: 480px) {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    width: auto;
+    max-width: none;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 18px 50px;
+    font-size: 1.4rem;
+  }
+}
+

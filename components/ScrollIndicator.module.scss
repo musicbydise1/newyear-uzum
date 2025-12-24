@@ -1,0 +1,60 @@
+.scrollIndicator {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  pointer-events: auto;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  .text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .mouse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arrows {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    bottom: 20px;
+    gap: 10px;
+
+    .text {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    bottom: 15px;
+    gap: 8px;
+
+    .text {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+    }
+  }
+}
+

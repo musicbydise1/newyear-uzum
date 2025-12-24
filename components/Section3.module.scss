@@ -1,0 +1,60 @@
+.section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: center;
+  position: relative;
+  z-index: 1;
+  .copy {
+    padding: 0 20px;
+    
+    @media (min-width: 768px) {
+      padding: 0;
+    }
+    
+    h2 {
+      position: relative;
+      z-index: 1;
+      font-size: 6rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      line-height: 1.3;
+      text-transform: uppercase;
+
+      @media (max-width: 480px) {
+        font-size: 1.4rem;
+      }
+      
+      @media (max-width: 768px) {
+        font-size: 3rem;
+        line-height: 1.2;
+      }
+    }
+  }
+  .downarrow {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-image: url("/images/downarrow.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    z-index: 2;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    
+    @media (min-width: 768px) {
+      bottom: 20px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
