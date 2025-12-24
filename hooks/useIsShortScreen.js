@@ -33,4 +33,3 @@ export function useIsShortScreen(breakpoint = 650) {
 
   return isShortScreen;
 }
-
