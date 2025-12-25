@@ -134,7 +134,7 @@ export default function Section4({
       <div className={styles.imagesContainer}>
         <div ref={photo1Ref} className={styles.imageWrapper}>
           <Image 
-            src="/images/photo11.webp" 
+            src="/images/photo1.webp" 
             alt="Photo 1" 
             width={600} 
             height={600}
@@ -145,7 +145,7 @@ export default function Section4({
         </div>
         <div ref={photo2Ref} className={styles.imageWrapper}>
           <Image 
-            src="/images/photo22.webp" 
+            src="/images/photo2.webp" 
             alt="Photo 2" 
             width={600} 
             height={565}
