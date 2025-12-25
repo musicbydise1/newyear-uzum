@@ -40,6 +40,13 @@
   justify-content: center;
   width: 774px;
   height: 848px;
+  @media (max-width: 768px) {
+    width: 600px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 }
 
 .modal {
@@ -88,6 +95,15 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  @media (max-width: 768px) {
+    height: 575px;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 323px;
+    max-height: 323px;
+    padding: 10px
+  }
 }
 
 .decorativeSvg {
@@ -129,18 +145,18 @@
   transform: rotate(30deg);
 
   @media (max-width: 768px) {
-    top: 15px;
-    left: 15px;
+    top: -10%;
+    left: -5%;
     
     img {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
     }
   }
 
   @media (max-width: 480px) {
-    top: 10px;
-    left: 10px;
+    top: -3%;
+    left: 0%;
     
     img {
       width: 100px;
@@ -158,8 +174,8 @@
   transform: rotate(-8deg);
 
   @media (max-width: 768px) {
-    bottom: 15px;
-    right: 15px;
+    bottom: -35%;
+    right: -13%;
     
     img {
       width: 120px;
@@ -168,8 +184,8 @@
   }
 
   @media (max-width: 480px) {
-    bottom: 10px;
-    right: 10px;
+    bottom: -20%;
+    right: -10%;
     
     img {
       width: 100px;
@@ -187,12 +203,20 @@
   position: absolute;
   top: 5%;
 
+  @media (max-width: 768px) {
+    margin-bottom: 0px;
+    top: 10%;
+  }
+
+  @media (max-width: 480px) {
+  }
+
   svg {
     width: 226px;
     height: 108px;
 
     @media (max-width: 768px) {
-      width: 120px;
+      width: 170px;
       height: auto;
     }
 
@@ -257,12 +281,12 @@
   padding: 0 20px;
 
   @media (max-width: 768px) {
-    font-size: 1.125rem;
+    font-size: 2rem;
     padding: 0 16px;
   }
 
   @media (max-width: 480px) {
-    font-size: 1rem;
+    font-size: 1.3rem;
     padding: 0 12px;
   }
 
@@ -277,9 +301,14 @@
   justify-content: center;
   flex-wrap: wrap;
 
+  @media (max-width: 768px) {
+    gap: 20px;
+    flex-wrap: nowrap;
+  }
+
   @media (max-width: 480px) {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row;
+    gap: 10px;
   }
 }
 
@@ -298,10 +327,16 @@
   justify-content: center;
   gap: 10px;
 
+  @media (max-width: 768px) {
+    padding: 17px 35px;
+    font-size: 1.2rem;
+  }
+
   @media (max-width: 480px) {
     width: 100%;
-    padding: 12px 24px;
-    font-size: 0.9rem;
+    padding: 12px 0px;
+    font-size: 0.8rem;
+    gap: 5px;
   }
 }
 
@@ -309,6 +344,11 @@
 .downloadButton svg {
   width: 20px;
   height: 20px;
+
+  @media (max-width: 480px) {
+    width: 18px;
+    height: 18px;
+  }
 } 
 
 .shareButton {

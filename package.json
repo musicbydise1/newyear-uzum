@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "gsap": "^3.11.0",
+    "html2canvas": "^1.4.1",
     "i18next": "^25.7.3",
     "next": "12.2.5",
     "next-i18next": "^15.4.3",

@@ -4,15 +4,21 @@ import styles from "./WishModal.module.scss";
 import { gsap } from "gsap";
 import { getRandomWish } from "../constants/wishes";
 import Logo from "./Logo";
+import { useIsMobile } from '../hooks/useIsMobile';
+import html2canvas from 'html2canvas';
 
 export default function WishModal({ isOpen, onClose, locale, shareButton, downloadButton }) {
   const overlayRef = useRef();
   const boxRef = useRef();
   const modalRef = useRef();
+  const contentWrapperRef = useRef();
+  const modalButtonsRef = useRef();
+  const closeButtonRef = useRef();
   const [showBox, setShowBox] = useState(false);
   const [showOpenBox, setShowOpenBox] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [wishText, setWishText] = useState("");
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isOpen) {
@@ -153,10 +159,62 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
     }
   };
 
-  const handleDownload = () => {
-    // Здесь можно добавить логику скачивания
-    // Например, создание изображения или PDF
-    alert("Функция скачивания будет реализована");
+  const handleDownload = async () => {
+    if (!contentWrapperRef.current) return;
+
+    try {
+      // Скрываем кнопки и кнопку закрытия перед созданием скриншота
+      const originalButtonsDisplay = modalButtonsRef.current?.style.display;
+      const originalCloseDisplay = closeButtonRef.current?.style.display;
+      
+      if (modalButtonsRef.current) {
+        modalButtonsRef.current.style.display = 'none';
+      }
+      if (closeButtonRef.current) {
+        closeButtonRef.current.style.display = 'none';
+      }
+
+      // Небольшая задержка для применения стилей
+      await new Promise(resolve => setTimeout(resolve, 100));
+
+      // Конвертируем contentWrapper в canvas
+      const canvas = await html2canvas(contentWrapperRef.current, {
+        backgroundColor: null,
+        scale: 2, // Увеличиваем качество изображения
+        useCORS: true,
+        logging: false,
+        width: contentWrapperRef.current.offsetWidth,
+        height: contentWrapperRef.current.offsetHeight,
+      });
+
+      // Восстанавливаем отображение кнопок
+      if (modalButtonsRef.current) {
+        modalButtonsRef.current.style.display = originalButtonsDisplay || '';
+      }
+      if (closeButtonRef.current) {
+        closeButtonRef.current.style.display = originalCloseDisplay || '';
+      }
+
+      // Конвертируем canvas в blob
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+
+        // Создаем ссылку для скачивания
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `wish-${Date.now()}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Освобождаем память
+        URL.revokeObjectURL(url);
+      }, 'image/png');
+    } catch (error) {
+      console.error('Ошибка при создании изображения:', error);
+      alert('Не удалось скачать изображение. Попробуйте еще раз.');
+    }
   };
 
   return (
@@ -185,7 +243,7 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
         {/* Модалка с пожеланием */}
         {showModal && (
           <div className={styles.modalWrapper}>
-            <button className={styles.closeButton} onClick={onClose}>
+            <button ref={closeButtonRef} className={styles.closeButton} onClick={onClose}>
                 <svg
                   width="50"
                   height="50"
@@ -207,7 +265,7 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
                 </svg>
               </button>
             <div ref={modalRef} className={styles.modal} onClick={(e) => e.stopPropagation()}>
-              <div className={styles.contentWrapper}>
+              <div ref={contentWrapperRef} className={styles.contentWrapper}>
                 <div className={styles.decorativeSvg}>
                   <svg width="393" height="393" viewBox="0 0 393 393" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M400.289 479.888L417.465 462.712L441.757 462.712C453.64 462.712 463.359 452.993 463.359 441.11L463.359 416.818L480.535 399.642C488.936 391.241 488.936 377.493 480.535 369.092L463.359 351.916L463.359 327.624C463.359 315.741 453.64 306.022 441.757 306.022L417.465 306.022L400.289 288.846C391.888 280.445 378.14 280.445 369.739 288.846L352.563 306.022L328.271 306.022C316.388 306.022 306.669 315.741 306.669 327.624L306.669 351.916L289.493 369.092C281.092 377.493 281.092 391.241 289.493 399.642L306.669 416.818L306.669 441.11C306.669 452.993 316.388 462.712 328.271 462.712L352.563 462.712L369.739 479.888C378.14 488.289 391.888 488.289 400.289 479.888Z" stroke="#6F00FD" strokeWidth="2" strokeMiterlimit="10"/>
@@ -227,8 +285,8 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
                   <Image
                     src="/images/bell.webp"
                     alt="Bell"
-                    width={180}
-                    height={210}
+                    width={isMobile ? 80 : 180}
+                    height={isMobile ? 100 : 210}
                   />
                 </div>
                 <div className={styles.logoWrapper}>
@@ -247,14 +305,14 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
                   <Image
                     src="/images/gingerbread.webp"
                     alt="Gingerbread"
-                    width={400}
-                    height={350}
+                    width={isMobile ? 200 : 400}
+                    height={isMobile ? 160 : 350}
                   />
                 </div>
               </div>
-              <div className={styles.modalButtons}>
+              <div ref={modalButtonsRef} className={styles.modalButtons}>
                 <button className={styles.shareButton} onClick={handleShare}>
-                  {shareButton}
+                  {!isMobile && shareButton}
                   <svg
                     width="18"
                     height="16"
@@ -273,7 +331,7 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
                   
                 </button>
                 <button className={styles.downloadButton} onClick={handleDownload}>
-                  {downloadButton}
+                  {!isMobile && downloadButton}
                   <svg
                     width="18"
                     height="18"
