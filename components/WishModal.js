@@ -183,8 +183,8 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
         scale: 3, // Увеличиваем качество изображения
         useCORS: true,
         logging: false,
-        width: contentWrapperRef.current.offsetWidth,
-        height: contentWrapperRef.current.offsetHeight,
+        width: isMobile ? 600 : contentWrapperRef.current.offsetWidth,
+        height: isMobile ? 800 : contentWrapperRef.current.offsetHeight,
       });
 
       // Восстанавливаем отображение кнопок
