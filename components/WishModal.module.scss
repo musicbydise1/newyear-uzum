@@ -32,13 +32,23 @@
   left: 50%;
 }
 
+.modalWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 774px;
+  height: 848px;
+}
+
 .modal {
   position: absolute;
   background: transparent;
   border-radius: 24px;
   padding: 0;
-  max-width: 600px;
-  width: 90%;
+  max-width: 675px;
+  width: 100%;
   text-align: center;
   z-index: 1002;
   transform-origin: center center;
@@ -64,11 +74,13 @@
 
 .contentWrapper {
   position: relative;
-  background: rgba(107, 70, 193, 0.9);
-  border-radius: 24px;
+  background: linear-gradient(180deg, #6000DA 0%, #33006B 100%);
+  border-radius: 64px;
   padding: 60px 48px;
   width: 100%;
-  max-width: 600px;
+  height: 675px;
+  max-width: 675px;
+  max-height: 675px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,6 +88,26 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+}
+
+.decorativeSvg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+  }
 
   @media (max-width: 768px) {
     padding: 48px 36px;
@@ -90,10 +122,11 @@
 
 .bellTopLeft {
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: -3%;
+  left: 0%;
   z-index: 1;
   pointer-events: none;
+  transform: rotate(30deg);
 
   @media (max-width: 768px) {
     top: 15px;
@@ -118,10 +151,11 @@
 
 .gingerbreadBottomRight {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: -23%;
+  right: -13%;
   z-index: 1;
   pointer-events: none;
+  transform: rotate(-8deg);
 
   @media (max-width: 768px) {
     bottom: 15px;
@@ -150,11 +184,12 @@
   justify-content: center;
   align-items: center;
   z-index: 2;
-  position: relative;
+  position: absolute;
+  top: 5%;
 
   svg {
-    width: 148px;
-    height: 42px;
+    width: 226px;
+    height: 108px;
 
     @media (max-width: 768px) {
       width: 120px;
@@ -170,8 +205,8 @@
 
 .closeButton {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 0;
+  right: 0;
   width: 50px;
   height: 50px;
   display: flex;
@@ -211,10 +246,11 @@
 }
 
 .modalText {
-  font-size: 1.25rem;
+  font-size: 2.6rem;
+  font-weight: 600;
   color: #fff;
   margin-bottom: 0;
-  line-height: 1.6;
+  line-height: 100%;
   text-align: center;
   z-index: 2;
   position: relative;
@@ -229,11 +265,15 @@
     font-size: 1rem;
     padding: 0 12px;
   }
+
+  .year2026 {
+    font-weight: 900;
+  }
 }
 
 .modalButtons {
   display: flex;
-  gap: 16px;
+  gap: 30px;
   justify-content: center;
   flex-wrap: wrap;
 
@@ -245,8 +285,8 @@
 
 .shareButton,
 .downloadButton {
-  padding: 14px 32px;
-  font-size: 1rem;
+  padding: 23px 56px;
+  font-size: 1.5rem;
   font-weight: 600;
   border: none;
   border-radius: 999px;
@@ -256,7 +296,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
 
   @media (max-width: 480px) {
     width: 100%;
@@ -264,6 +304,12 @@
     font-size: 0.9rem;
   }
 }
+
+.shareButton svg,
+.downloadButton svg {
+  width: 20px;
+  height: 20px;
+} 
 
 .shareButton {
   background: #fff;
