@@ -4,6 +4,7 @@ import styles from "./Section1.module.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useIsMobile } from '../hooks/useIsMobile';
+import { useIsHeightBelow950 } from '../hooks/useIsHeightBelow950';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Section1({
@@ -17,6 +18,7 @@ export default function Section1({
   const bellRef = useRef();
   const gingerbreadRef = useRef();
   const isMobile = useIsMobile();
+  const isHeightBelow950 = useIsHeightBelow950();
 
   useEffect(() => {
     const sectionElement = sectionRef.current;
@@ -128,8 +130,8 @@ export default function Section1({
         <Image 
           src="/images/bell.webp" 
           alt="Bell" 
-          width={isMobile ? 200 : 400} 
-          height={isMobile ? 240 : 479} 
+          width={isMobile ? 200 : (isHeightBelow950 ? 300 : 400)} 
+          height={isMobile ? 240 : (isHeightBelow950 ? 360 : 479)} 
         />
       </div>
       <div className={styles.copy}>
@@ -146,8 +148,8 @@ export default function Section1({
         <Image 
           src="/images/gingerbread.png" 
           alt="Gingerbread" 
-          width={isMobile ? 447 : 730} 
-          height={isMobile ? 447 : 730}
+          width={isMobile ? 447 : (isHeightBelow950 ? 500 : 730)} 
+          height={isMobile ? 447 : (isHeightBelow950 ? 500 : 730)}
         />
       </div>
     </div>

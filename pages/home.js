@@ -14,12 +14,14 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useIsShortScreen } from "../hooks/useIsShortScreen";
+import { useIsHeightBelow950 } from "../hooks/useIsHeightBelow950";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
   const isShortScreen = useIsShortScreen();
+  const isHeightBelow950 = useIsHeightBelow950();
   const section1Ref = useRef();
   const section2Ref = useRef();
   const section3Ref = useRef();
@@ -160,7 +162,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : "80vh",
+      y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : isHeightBelow950 ? "100vh" : "80vh",
       ease: "none",
     });
 
@@ -174,7 +176,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : "160vh",
+      y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : isHeightBelow950 ? "210vh" : "160vh",
       ease: "none",
     });
 
@@ -188,7 +190,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : "80vh",
+      y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : isHeightBelow950 ? "100vh" : "80vh",
       ease: "none",
     });
     gsap.timeline({
@@ -200,7 +202,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : "160vh",
+      y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : isHeightBelow950 ? "210vh" : "160vh",
       ease: "none",
     });
 
@@ -239,7 +241,7 @@ export default function Home() {
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, [isMobile, isShortScreen]);
+  }, [isMobile, isShortScreen, isHeightBelow950]);
 
   // Эффект для создания снежинок
   useEffect(() => {

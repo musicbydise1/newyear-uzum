@@ -6,6 +6,7 @@ import Logo from "./Logo";
 import SegmentedControl from "./SegmentedControl";
 import WishModal from "./WishModal";
 import { useIsMobile } from '../hooks/useIsMobile';
+import { useIsHeightBelow950 } from '../hooks/useIsHeightBelow950';
 
 export default function Section6({
   scrollTo,
@@ -18,6 +19,7 @@ export default function Section6({
   const { t, locale, changeLanguage } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useIsMobile();
+  const isHeightBelow950 = useIsHeightBelow950();
 
   const languageData = [
     { value: 'ru', label: 'RU' },
@@ -33,8 +35,8 @@ export default function Section6({
         <Image 
           src="/images/bell.webp" 
           alt="Bell" 
-          width={isMobile ? 150 : 200} 
-          height={isMobile ? 170 : 220}
+          width={isMobile ? 150 : (isHeightBelow950 ? 180 : 200)} 
+          height={isMobile ? 170 : (isHeightBelow950 ? 200 : 220)}
         />
       </div>
       <div className={styles.topRightContainer}>
@@ -49,8 +51,8 @@ export default function Section6({
           <Image 
             src="/images/bell.webp" 
             alt="Bell" 
-            width={isMobile ? 80 : 150} 
-            height={isMobile ? 100 : 170}
+            width={isMobile ? 80 : (isHeightBelow950 ? 120 : 150)} 
+            height={isMobile ? 100 : (isHeightBelow950 ? 140 : 170)}
           />
         </div>
       </div>
@@ -87,16 +89,16 @@ export default function Section6({
         <Image 
           src="/images/gingerbread.webp" 
           alt="Gingerbread" 
-          width={isMobile ? 300 : 450} 
-          height={isMobile ? 250 : 380}
+          width={isMobile ? 300 : (isHeightBelow950 ? 380 : 450)} 
+          height={isMobile ? 250 : (isHeightBelow950 ? 320 : 380)}
         />
       </div>
       <div className={styles.treeBottomRight}>
         <Image 
           src="/images/tree.webp" 
           alt="Tree" 
-          width={isMobile ? 300 : 400} 
-          height={isMobile ? 400 : 550}
+          width={isMobile ? 300 : (isHeightBelow950 ? 350 : 400)} 
+          height={isMobile ? 400 : (isHeightBelow950 ? 480 : 550)}
         />
       </div>
     </div>

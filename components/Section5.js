@@ -5,6 +5,7 @@ import { useLanguage } from "../contexts/LanguageContext";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useIsMobile } from '../hooks/useIsMobile';
+import { useIsHeightBelow950 } from '../hooks/useIsHeightBelow950';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Section5({
@@ -18,6 +19,7 @@ export default function Section5({
   const photo4Ref = useRef();
   const { t } = useLanguage();
   const isMobile = useIsMobile();
+  const isHeightBelow950 = useIsHeightBelow950();
 
   useEffect(() => {
     const sectionElement = sectionRef.current;
@@ -127,7 +129,7 @@ export default function Section5({
         }
       });
     };
-  }, [isMobile]);
+  }, [isMobile, isHeightBelow950]);
 
   return (
     <div className={styles.section} ref={sectionRef}>
@@ -136,8 +138,8 @@ export default function Section5({
           <Image 
             src="/images/photo3.webp" 
             alt="Photo 3" 
-            width={600} 
-            height={600}
+            width={isMobile ? 600 : (isHeightBelow950 ? 400 : 600)} 
+            height={isMobile ? 600 : (isHeightBelow950 ? 400 : 600)}
             quality={80}
             loading="lazy"
           />
@@ -147,8 +149,8 @@ export default function Section5({
           <Image 
             src="/images/photo4.webp" 
             alt="Photo 4" 
-            width={600} 
-            height={565}
+            width={isMobile ? 600 : (isHeightBelow950 ? 400 : 600)} 
+            height={isMobile ? 565 : (isHeightBelow950 ? 370 : 565)}
             quality={80}
             loading="lazy"
           />
