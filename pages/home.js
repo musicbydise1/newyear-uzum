@@ -59,13 +59,6 @@ export default function Home() {
     const glowElement = glowWrapperRef.current;
     if (!glowElement) return;
     
-    // Устанавливаем xPercent через GSAP для избежания конфликтов с CSS transform
-    // Это гарантирует, что GSAP будет управлять всем transform, включая translateX
-    gsap.set(glowElement, {
-      xPercent: -50,
-      force3D: true,
-    });
-    
     // Анимация появления GlowCircle сверху к своей позиции, затем изменение opacity
     gsap.timeline()
       .fromTo(
@@ -79,7 +72,6 @@ export default function Home() {
           opacity: 0.65,
           duration: 1.2,
           ease: "power2.out",
-          force3D: true,
         }
       )
       .to(
@@ -104,7 +96,6 @@ export default function Home() {
     }).to(glowElement, {
       y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : "80vh",
       ease: "none",
-      force3D: true,
     });
 
     // Анимация изменения позиции при переходе от секции 2 к секции 3
@@ -119,7 +110,6 @@ export default function Home() {
     }).to(glowElement, {
       y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : "160vh",
       ease: "none",
-      force3D: true,
     });
 
     // Анимация изменения позиции при переходе от секции 3 к секции 4 (движение вверх)
@@ -134,7 +124,6 @@ export default function Home() {
     }).to(glowElement, {
       y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : "80vh",
       ease: "none",
-      force3D: true,
     });
     gsap.timeline({
       scrollTrigger: {
@@ -147,7 +136,6 @@ export default function Home() {
     }).to(glowElement, {
       y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : "160vh",
       ease: "none",
-      force3D: true,
     });
 
     // Скрытие ScrollIndicator на секции 6
