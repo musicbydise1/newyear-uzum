@@ -180,7 +180,7 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
       // Конвертируем contentWrapper в canvas
       const canvas = await html2canvas(contentWrapperRef.current, {
         backgroundColor: null,
-        scale: 4, // Увеличиваем качество изображения
+        scale: 3, // Увеличиваем качество изображения
         useCORS: true,
         logging: false,
         width: contentWrapperRef.current.offsetWidth,
