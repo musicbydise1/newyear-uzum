@@ -180,7 +180,7 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
       // Конвертируем contentWrapper в canvas
       const canvas = await html2canvas(contentWrapperRef.current, {
         backgroundColor: null,
-        scale: 2, // Увеличиваем качество изображения
+        scale: 4, // Увеличиваем качество изображения
         useCORS: true,
         logging: false,
         width: contentWrapperRef.current.offsetWidth,
@@ -287,6 +287,8 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
                     alt="Bell"
                     width={isMobile ? 80 : 180}
                     height={isMobile ? 100 : 210}
+                    unoptimized
+                    priority
                   />
                 </div>
                 <div className={styles.logoWrapper}>
@@ -307,6 +309,8 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
                     alt="Gingerbread"
                     width={isMobile ? 200 : 400}
                     height={isMobile ? 160 : 350}
+                    unoptimized
+                    priority
                   />
                 </div>
               </div>
