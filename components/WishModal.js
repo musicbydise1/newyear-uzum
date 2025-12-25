@@ -177,15 +177,39 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
       // Небольшая задержка для применения стилей
       await new Promise(resolve => setTimeout(resolve, 100));
 
+      // Получаем размеры элемента
+      const elementWidth = contentWrapperRef.current.offsetWidth;
+      const elementHeight = contentWrapperRef.current.offsetHeight;
+      
+      // Размеры финального canvas
+      const canvasWidth = isMobile ? 350 : elementWidth;
+      const canvasHeight = isMobile ? 350 : elementHeight;
+      const scale = 3; // Увеличиваем качество изображения
+      
       // Конвертируем contentWrapper в canvas
-      const canvas = await html2canvas(contentWrapperRef.current, {
+      const sourceCanvas = await html2canvas(contentWrapperRef.current, {
         backgroundColor: null,
-        scale: 3, // Увеличиваем качество изображения
+        scale: scale,
         useCORS: true,
         logging: false,
-        width: isMobile ? 350 : contentWrapperRef.current.offsetWidth,
-        height: isMobile ? 350 : contentWrapperRef.current.offsetHeight,
+        width: elementWidth,
+        height: elementHeight,
       });
+
+      // Создаем новый canvas с нужными размерами
+      const canvas = document.createElement('canvas');
+      canvas.width = canvasWidth * scale;
+      canvas.height = canvasHeight * scale;
+      const ctx = canvas.getContext('2d');
+
+      // Вычисляем смещение для центрирования
+      const sourceWidth = sourceCanvas.width;
+      const sourceHeight = sourceCanvas.height;
+      const x = (canvas.width - sourceWidth) / 2;
+      const y = (canvas.height - sourceHeight) / 2;
+
+      // Рисуем исходный canvas по центру нового canvas
+      ctx.drawImage(sourceCanvas, x, y);
 
       // Восстанавливаем отображение кнопок
       if (modalButtonsRef.current) {
