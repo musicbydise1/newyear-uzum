@@ -256,7 +256,7 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
           )}
           {showOpenBox && (
             <Image
-              src="/images/open-box.webp"
+              src="/images/open-boxx.webp"
               alt="Open Box"
               width={300}
               height={300}
