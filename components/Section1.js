@@ -130,8 +130,8 @@ export default function Section1({
         <Image 
           src="/images/bell.webp" 
           alt="Bell" 
-          width={isMobile ? 200 : (isHeightBelow950 ? 300 : 400)} 
-          height={isMobile ? 240 : (isHeightBelow950 ? 360 : 479)} 
+          width={isMobile ? 200 : (!isMobile && isHeightBelow950 ? 300 : 400)} 
+          height={isMobile ? 240 : (!isMobile && isHeightBelow950 ? 360 : 479)} 
         />
       </div>
       <div className={styles.copy}>
@@ -148,8 +148,8 @@ export default function Section1({
         <Image 
           src="/images/gingerbread.png" 
           alt="Gingerbread" 
-          width={isMobile ? 447 : (isHeightBelow950 ? 500 : 730)} 
-          height={isMobile ? 447 : (isHeightBelow950 ? 500 : 730)}
+          width={isMobile ? 447 : (!isMobile && isHeightBelow950 ? 500 : 730)} 
+          height={isMobile ? 447 : (!isMobile && isHeightBelow950 ? 500 : 730)}
         />
       </div>
     </div>

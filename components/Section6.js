@@ -35,8 +35,8 @@ export default function Section6({
         <Image 
           src="/images/bell.webp" 
           alt="Bell" 
-          width={isMobile ? 150 : (isHeightBelow950 ? 180 : 200)} 
-          height={isMobile ? 170 : (isHeightBelow950 ? 200 : 220)}
+          width={isMobile ? 150 : (!isMobile && isHeightBelow950 ? 180 : 200)} 
+          height={isMobile ? 170 : (!isMobile && isHeightBelow950 ? 200 : 220)}
         />
       </div>
       <div className={styles.topRightContainer}>
@@ -51,8 +51,8 @@ export default function Section6({
           <Image 
             src="/images/bell.webp" 
             alt="Bell" 
-            width={isMobile ? 80 : (isHeightBelow950 ? 120 : 150)} 
-            height={isMobile ? 100 : (isHeightBelow950 ? 140 : 170)}
+            width={isMobile ? 80 : (!isMobile && isHeightBelow950 ? 120 : 150)} 
+            height={isMobile ? 100 : (!isMobile && isHeightBelow950 ? 140 : 170)}
           />
         </div>
       </div>
@@ -89,16 +89,16 @@ export default function Section6({
         <Image 
           src="/images/gingerbread.webp" 
           alt="Gingerbread" 
-          width={isMobile ? 300 : (isHeightBelow950 ? 380 : 450)} 
-          height={isMobile ? 250 : (isHeightBelow950 ? 320 : 380)}
+          width={isMobile ? 300 : (!isMobile && isHeightBelow950 ? 380 : 450)} 
+          height={isMobile ? 250 : (!isMobile && isHeightBelow950 ? 320 : 380)}
         />
       </div>
       <div className={styles.treeBottomRight}>
         <Image 
           src="/images/tree.webp" 
           alt="Tree" 
-          width={isMobile ? 300 : (isHeightBelow950 ? 350 : 400)} 
-          height={isMobile ? 400 : (isHeightBelow950 ? 480 : 550)}
+          width={isMobile ? 300 : (!isMobile && isHeightBelow950 ? 350 : 400)} 
+          height={isMobile ? 400 : (!isMobile && isHeightBelow950 ? 480 : 550)}
         />
       </div>
     </div>

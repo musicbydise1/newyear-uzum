@@ -162,7 +162,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : isHeightBelow950 ? "100vh" : "80vh",
+      y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : (!isMobile && isHeightBelow950 ? "100vh" : "80vh"),
       ease: "none",
     });
 
@@ -176,7 +176,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : isHeightBelow950 ? "210vh" : "160vh",
+      y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : (!isMobile && isHeightBelow950 ? "210vh" : "160vh"),
       ease: "none",
     });
 
@@ -190,7 +190,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : isHeightBelow950 ? "100vh" : "80vh",
+      y: isMobile && isShortScreen ? "60vh" : isMobile ? "55vh" : (!isMobile && isHeightBelow950 ? "100vh" : "80vh"),
       ease: "none",
     });
     gsap.timeline({
@@ -202,7 +202,7 @@ export default function Home() {
         scrub: true,
       },
     }).to(glowElement, {
-      y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : isHeightBelow950 ? "210vh" : "160vh",
+      y: isMobile && isShortScreen ? "120vh" : isMobile ? "115vh" : (!isMobile && isHeightBelow950 ? "210vh" : "160vh"),
       ease: "none",
     });
 

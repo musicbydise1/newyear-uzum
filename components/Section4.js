@@ -138,8 +138,8 @@ export default function Section4({
           <Image 
             src="/images/photo11.webp" 
             alt="Photo 1" 
-            width={isMobile ? 600 : (isHeightBelow950 ? 400 : 600)} 
-            height={isMobile ? 600 : (isHeightBelow950 ? 400 : 600)}
+            width={isMobile ? 600 : (!isMobile && isHeightBelow950 ? 400 : 600)} 
+            height={isMobile ? 600 : (!isMobile && isHeightBelow950 ? 400 : 600)}
             quality={80}
             loading="lazy"
           />
@@ -149,8 +149,8 @@ export default function Section4({
           <Image 
             src="/images/photo22.webp" 
             alt="Photo 2" 
-            width={isMobile ? 600 : (isHeightBelow950 ? 400 : 600)} 
-            height={isMobile ? 565 : (isHeightBelow950 ? 370 : 565)}
+            width={isMobile ? 600 : (!isMobile && isHeightBelow950 ? 400 : 600)} 
+            height={isMobile ? 565 : (!isMobile && isHeightBelow950 ? 370 : 565)}
             quality={80}
             loading="lazy"
           />
