@@ -136,7 +136,7 @@ export default function Section4({
       <div className={styles.imagesContainer}>
         <div ref={photo1Ref} className={styles.imageWrapper}>
           <Image 
-            src="/images/photo1.webp" 
+            src="/images/photo11.webp" 
             alt="Photo 1" 
             width={isMobile ? 600 : (isHeightBelow950 ? 400 : 600)} 
             height={isMobile ? 600 : (isHeightBelow950 ? 400 : 600)}
@@ -147,7 +147,7 @@ export default function Section4({
         </div>
         <div ref={photo2Ref} className={styles.imageWrapper}>
           <Image 
-            src="/images/photo2.webp" 
+            src="/images/photo22.webp" 
             alt="Photo 2" 
             width={isMobile ? 600 : (isHeightBelow950 ? 400 : 600)} 
             height={isMobile ? 565 : (isHeightBelow950 ? 370 : 565)}

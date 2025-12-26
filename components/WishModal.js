@@ -315,9 +315,9 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
                     priority
                   />
                 </div>
-                <div className={styles.logoWrapper}>
+                {/* <div className={styles.logoWrapper}>
                   <Logo />
-                </div>
+                </div> */}
                 <p className={styles.modalText}>
                   {wishText && wishText.split(/(2026)/i).map((part, partIndex) => 
                     part.toLowerCase() === '2026' ? (
