@@ -1,0 +1,160 @@
+.template {
+  position: fixed;
+  top: -2000px;
+  left: 0;
+  width: 1080px;
+  height: 1920px;
+  visibility: visible;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #6000DA 0%, #33006B 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+// Эффект снега (белые точки)
+.snowflakes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+  // Создаем паттерн из белых точек, который повторяется по всему изображению (40 градиентов)
+  background-image: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0.4rem, transparent 0.5rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0.5rem, transparent 0.6rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 0.6rem, transparent 0.7rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0.7rem, transparent 0.8rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0.8rem, transparent 0.9rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 0.9rem, transparent 1rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 1rem, transparent 1.1rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.1rem, transparent 1.2rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 1.2rem, transparent 1.3rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 1.3rem, transparent 1.4rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.4rem, transparent 1.5rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 1.5rem, transparent 1.6rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0.45rem, transparent 0.55rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0.55rem, transparent 0.65rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 0.65rem, transparent 0.75rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0.75rem, transparent 0.85rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0.85rem, transparent 0.95rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 0.95rem, transparent 1.05rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 1.05rem, transparent 1.15rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.15rem, transparent 1.25rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 1.25rem, transparent 1.35rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 1.35rem, transparent 1.45rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.45rem, transparent 1.55rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 0.5rem, transparent 0.6rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0.6rem, transparent 0.7rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0.7rem, transparent 0.8rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 0.8rem, transparent 0.9rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0.9rem, transparent 1rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 1rem, transparent 1.1rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 1.1rem, transparent 1.2rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 1.2rem, transparent 1.3rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.3rem, transparent 1.4rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 1.4rem, transparent 1.5rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0.4rem, transparent 0.5rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0.6rem, transparent 0.7rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 0.8rem, transparent 0.9rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 1rem, transparent 1.1rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.2rem, transparent 1.3rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 1.4rem, transparent 1.5rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.95) 0.5rem, transparent 0.6rem),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 0.7rem, transparent 0.8rem);
+  // Размеры фона в rem для более разреженного паттерна (40 размеров)
+  background-size: 
+    40rem 40rem, 35rem 35rem, 30rem 30rem, 25rem 25rem, 20rem 20rem,
+    15rem 15rem, 12rem 12rem, 10rem 10rem, 18rem 18rem, 22rem 22rem,
+    28rem 28rem, 32rem 32rem, 38rem 38rem, 16rem 16rem, 14rem 14rem,
+    24rem 24rem, 26rem 26rem, 34rem 34rem, 36rem 36rem, 11rem 11rem,
+    13rem 13rem, 17rem 17rem, 19rem 19rem, 21rem 21rem, 23rem 23rem,
+    27rem 27rem, 29rem 29rem, 31rem 31rem, 33rem 33rem, 37rem 37rem,
+    39rem 39rem, 8rem 8rem, 9rem 9rem, 7rem 7rem, 6rem 6rem,
+    5rem 5rem, 4rem 4rem, 3rem 3rem, 2rem 2rem, 1rem 1rem;
+  // Случайные позиции для каждого слоя в rem, распределенные по всей высоте (40 позиций)
+  background-position: 
+    3rem 5rem, 12rem 28rem, 45rem 15rem, 8rem 42rem, 35rem 8rem,
+    22rem 55rem, 48rem 35rem, 15rem 65rem, 38rem 18rem, 7rem 72rem,
+    28rem 48rem, 42rem 58rem, 18rem 25rem, 52rem 12rem, 5rem 88rem,
+    33rem 68rem, 46rem 45rem, 11rem 95rem, 25rem 32rem, 40rem 78rem,
+    14rem 52rem, 50rem 22rem, 6rem 62rem, 31rem 85rem, 44rem 38rem,
+    19rem 75rem, 36rem 28rem, 9rem 105rem, 27rem 48rem, 43rem 92rem,
+    16rem 68rem, 39rem 15rem, 4rem 82rem, 30rem 58rem, 47rem 72rem,
+    13rem 98rem, 32rem 42rem, 21rem 88rem, 41rem 35rem, 10rem 115rem,
+    26rem 68rem, 37rem 52rem, 17rem 108rem, 34rem 78rem, 24rem 95rem;
+  background-repeat: repeat;
+  opacity: 0.9;
+}
+
+.wishContainer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 40px;
+  max-width: 900px;
+}
+
+.wishText {
+  font-size: 72px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 100%;
+  margin: 0;
+  text-align: center;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: -0.02em;
+  white-space: pre-line;
+}
+
+.year2026 {
+  font-weight: 900;
+  font-size: 96px;
+  color: #ffffff;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gingerbread {
+  position: absolute;
+  bottom: -150px;
+  left: -280px;
+  z-index: 1;
+  pointer-events: none;
+  
+  img {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+  }
+}
+
+.tree {
+  position: absolute;
+  bottom: -100px;
+  right: -200px;
+  z-index: 1;
+  pointer-events: none;
+  
+  img {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+  }
+}

@@ -6,6 +6,7 @@ import { getRandomWish } from "../constants/wishes";
 import Logo from "./Logo";
 import { useIsMobile } from '../hooks/useIsMobile';
 import html2canvas from 'html2canvas';
+import WishTemplate from './WishTemplate';
 
 export default function WishModal({ isOpen, onClose, locale, shareButton, downloadButton }) {
   const overlayRef = useRef();
@@ -14,6 +15,7 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
   const contentWrapperRef = useRef();
   const modalButtonsRef = useRef();
   const closeButtonRef = useRef();
+  const wishTemplateRef = useRef();
   const [showBox, setShowBox] = useState(false);
   const [showOpenBox, setShowOpenBox] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -160,81 +162,55 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
   };
 
   const handleDownload = async () => {
-    if (!contentWrapperRef.current) return;
+    if (!wishTemplateRef.current || !wishText) return;
 
     try {
-      // Скрываем кнопки и кнопку закрытия перед созданием скриншота
-      const originalButtonsDisplay = modalButtonsRef.current?.style.display;
-      const originalCloseDisplay = closeButtonRef.current?.style.display;
+      // Получаем элемент шаблона
+      const templateElement = wishTemplateRef.current;
       
-      if (modalButtonsRef.current) {
-        modalButtonsRef.current.style.display = 'none';
-      }
-      if (closeButtonRef.current) {
-        closeButtonRef.current.style.display = 'none';
-      }
-
-      // Небольшая задержка для применения стилей
+      // Небольшая задержка для применения стилей и рендеринга
       await new Promise(resolve => setTimeout(resolve, 100));
 
-      // Получаем размеры элемента
-      const elementWidth = contentWrapperRef.current.offsetWidth;
-      const elementHeight = contentWrapperRef.current.offsetHeight;
+      // Размеры для Instagram Stories (9:16)
+      const storiesWidth = 1080;
+      const storiesHeight = 1920;
+      const scale = 2; // Качество для высокого разрешения
       
-      // Размеры финального canvas
-      const canvasWidth = isMobile ? 350 : elementWidth;
-      const canvasHeight = isMobile ? 350 : elementHeight;
-      const scale = 3; // Увеличиваем качество изображения
-      
-      // Конвертируем contentWrapper в canvas
-      const sourceCanvas = await html2canvas(contentWrapperRef.current, {
+      // Конвертируем шаблон в canvas
+      const canvas = await html2canvas(templateElement, {
         backgroundColor: null,
         scale: scale,
         useCORS: true,
         logging: false,
-        width: elementWidth,
-        height: elementHeight,
+        width: storiesWidth,
+        height: storiesHeight,
+        allowTaint: true,
       });
 
-      // Создаем новый canvas с нужными размерами
-      const canvas = document.createElement('canvas');
-      canvas.width = canvasWidth * scale;
-      canvas.height = canvasHeight * scale;
-      const ctx = canvas.getContext('2d');
-
-      // Вычисляем смещение для центрирования
-      const sourceWidth = sourceCanvas.width;
-      const sourceHeight = sourceCanvas.height;
-      const x = (canvas.width - sourceWidth) / 2;
-      const y = (canvas.height - sourceHeight) / 2;
-
-      // Рисуем исходный canvas по центру нового canvas
-      ctx.drawImage(sourceCanvas, x, y);
-
-      // Восстанавливаем отображение кнопок
-      if (modalButtonsRef.current) {
-        modalButtonsRef.current.style.display = originalButtonsDisplay || '';
-      }
-      if (closeButtonRef.current) {
-        closeButtonRef.current.style.display = originalCloseDisplay || '';
+      // Проверяем, что canvas создан корректно
+      if (!canvas || canvas.width === 0 || canvas.height === 0) {
+        throw new Error('Canvas не создан корректно');
       }
 
       // Конвертируем canvas в blob
       canvas.toBlob((blob) => {
-        if (!blob) return;
+        if (!blob) {
+          alert('Не удалось создать изображение. Попробуйте еще раз.');
+          return;
+        }
 
         // Создаем ссылку для скачивания
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `wish-${Date.now()}.png`;
+        link.download = `wish-stories-${Date.now()}.png`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
         
         // Освобождаем память
         URL.revokeObjectURL(url);
-      }, 'image/png');
+      }, 'image/png', 0.95); // Качество 0.95 для хорошего баланса размера и качества
     } catch (error) {
       console.error('Ошибка при создании изображения:', error);
       alert('Не удалось скачать изображение. Попробуйте еще раз.');
@@ -242,8 +218,12 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
   };
 
   return (
-    <div ref={overlayRef} className={styles.overlay} onClick={onClose}>
-      <div className={styles.content} onClick={(e) => e.stopPropagation()}>
+    <>
+      {/* Скрытый шаблон для скачивания */}
+      <WishTemplate ref={wishTemplateRef} wishText={wishText} />
+      
+      <div ref={overlayRef} className={styles.overlay} onClick={onClose}>
+        <div className={styles.content} onClick={(e) => e.stopPropagation()}>
         {/* Коробка */}
         <div ref={boxRef} className={styles.boxContainer}>
           {showBox && (
@@ -382,6 +362,7 @@ export default function WishModal({ isOpen, onClose, locale, shareButton, downlo
         )}
       </div>
     </div>
+    </>
   );
 }
 
